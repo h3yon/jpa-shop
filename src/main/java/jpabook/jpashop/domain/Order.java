@@ -7,7 +7,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "ORDERS")
-public class Order {
+public class Order extends BaseEntity {
 
     @Id @GeneratedValue
     @Column(name = "ORDER_ID")
@@ -21,8 +21,8 @@ public class Order {
     @JoinColumn(name = "DELIVERY_ID")
     private Delivery delivery;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderItem> orderItems = new ArrayList<>();
+//    @OneToMany(mappedBy = "order")
+//    private List<OrderItem> orderItems = new ArrayList<>();
 
     private LocalDateTime orderDate;
 
@@ -61,9 +61,9 @@ public class Order {
         this.status = status;
     }
 
-    public void addOrderItem(OrderItem orderItem) {
-        orderItems.add(orderItem);
-        // 이걸로 양방향 걸리도록 함
-        orderItem.setOrder(this);
-    }
+//    public void addOrderItem(OrderItem orderItem) {
+//        orderItems.add(orderItem);
+//        // 이걸로 양방향 걸리도록 함
+//        orderItem.setOrder(this);
+//    }
 }
